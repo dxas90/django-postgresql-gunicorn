@@ -1,7 +1,7 @@
 asgiref==3.10.0
 Django==5.2.7
 gunicorn==23.0.0
-psycopg2-binary==2.9.10
+psycopg2-binary==2.9.11
 pytz==2025.2
 sqlparse==0.5.3
 typing-extensions==4.15.0
