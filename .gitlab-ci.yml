@@ -112,7 +112,7 @@ deploy_staging:
     - apk add --no-cache curl
   script:
     - echo "Deploying to staging environment..."
-    - echo "Image: $DOCKER_IMAGE"
+    - echo "Image -> $DOCKER_IMAGE"
     # Add your deployment commands here
     # Example: kubectl set image deployment/myapp myapp=$DOCKER_IMAGE
     # Example: docker-compose -f docker-compose.staging.yml up -d
@@ -154,8 +154,8 @@ notify_success:
   image: alpine:latest
   script:
     - echo "Pipeline succeeded for branch/tag $CI_COMMIT_REF_NAME"
-    - echo "Commit: $CI_COMMIT_SHORT_SHA"
-    - echo "Author: $CI_COMMIT_AUTHOR"
+    - echo "Commit -> $CI_COMMIT_SHORT_SHA"
+    - echo "Author -> $CI_COMMIT_AUTHOR"
     # Add notification commands here
     # Example: curl -X POST -H 'Content-type: application/json' --data '{"text":"Build Success"}' $SLACK_WEBHOOK
   rules:
@@ -166,8 +166,8 @@ notify_failure:
   image: alpine:latest
   script:
     - echo "Pipeline failed for branch/tag $CI_COMMIT_REF_NAME"
-    - echo "Commit: $CI_COMMIT_SHORT_SHA"
-    - echo "Author: $CI_COMMIT_AUTHOR"
+    - echo "Commit -> $CI_COMMIT_SHORT_SHA"
+    - echo "Author -> $CI_COMMIT_AUTHOR"
     # Add notification commands here
     # Example: curl -X POST -H 'Content-type: application/json' --data '{"text":"Build Failed"}' $SLACK_WEBHOOK
   rules:
