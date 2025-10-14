@@ -140,3 +140,40 @@ python manage.py createsuperuser
 # Run tests
 python manage.py test
 ```
+
+## CI/CD Pipeline
+
+This project includes a comprehensive GitLab CI/CD pipeline for automated building, testing, and deployment.
+
+### Pipeline Overview
+
+The pipeline automatically runs the following stages on **every commit to any branch**:
+- **initialize**: Install dependencies
+- **build**: Collect static files
+- **test**: Run Django tests
+- **notify**: Send build status notifications
+
+For **tagged commits only**, the pipeline additionally runs:
+- **containerize**: Build and push Docker images
+- **deployment**: Deploy to staging environment
+- **promote**: Manual job to promote to production
+
+For detailed documentation, see [GITLAB_CI_README.md](GITLAB_CI_README.md).
+
+### Quick Start
+
+**Regular development workflow:**
+```bash
+git add .
+git commit -m "Your changes"
+git push
+# Pipeline runs: initialize → build → test → notify
+```
+
+**Release workflow:**
+```bash
+git tag -a v1.0.0 -m "Release v1.0.0"
+git push origin v1.0.0
+# Pipeline runs: initialize → build → test → containerize → deployment
+# Then manually trigger promotion to production in GitLab UI
+```
