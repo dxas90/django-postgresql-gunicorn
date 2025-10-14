@@ -49,4 +49,4 @@ COPY . .
 EXPOSE 8000
 
 # Run the application.
-CMD gunicorn xproject.wsgi:application -c gunicorn.conf.py
+CMD ["gunicorn", "xproject.wsgi:application", "-c", "gunicorn.conf.py"]
