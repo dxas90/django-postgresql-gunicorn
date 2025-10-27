@@ -87,7 +87,7 @@ test:
 # ============================================
 containerize:
   stage: containerize
-  image: docker:24-git
+  image: docker:25-git
   services:
     - docker:28-dind
   before_script:
@@ -128,7 +128,7 @@ deploy_staging:
 # ============================================
 promote_production:
   stage: promote
-  image: docker:24-git
+  image: docker:25-git
   services:
     - docker:28-dind
   before_script:
