@@ -89,7 +89,7 @@ containerize:
   stage: containerize
   image: docker:24-git
   services:
-    - docker:24-dind
+    - docker:28-dind
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
@@ -130,7 +130,7 @@ promote_production:
   stage: promote
   image: docker:24-git
   services:
-    - docker:24-dind
+    - docker:28-dind
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
